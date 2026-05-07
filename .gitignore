@@ -1,0 +1,7 @@
+mediaflow.db
+*.db
+static/uploads/
+__pycache__/
+*.pyc
+.env
+venv/

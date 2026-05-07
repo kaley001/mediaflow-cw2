@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Resources - MediaFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h1>MediaFlow</h1>
+    <div>
+        <a href="/">Gallery</a>
+        <a href="/upload">Upload Image</a>
+        <a href="/azure">Azure Resources</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h2>Azure Cloud-Native Mapping</h2>
+    <p>This page explains how the local MediaFlow prototype maps to the CW2 Azure implementation.</p>
+</section>
+
+<section class="info-grid">
+    <div>
+        <h3>Azure App Service</h3>
+        <p>Hosts the MediaFlow web application frontend and backend.</p>
+    </div>
+
+    <div>
+        <h3>Azure Blob Storage</h3>
+        <p>Stores uploaded image files as scalable binary blob data.</p>
+    </div>
+
+    <div>
+        <h3>Cosmos DB</h3>
+        <p>Stores image metadata such as title, description, category and upload date.</p>
+    </div>
+
+    <div>
+        <h3>Logic Apps REST API</h3>
+        <p>Provides CRUD endpoints for creating, reading, updating and deleting image records.</p>
+    </div>
+
+    <div>
+        <h3>Azure Functions</h3>
+        <p>Can process uploaded images, generate thumbnails and validate files automatically.</p>
+    </div>
+
+    <div>
+        <h3>Application Insights</h3>
+        <p>Monitors errors, requests, performance and application health.</p>
+    </div>
+</section>
+
+</body>
+</html>

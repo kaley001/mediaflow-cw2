@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MediaFlow - Image Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h1>MediaFlow</h1>
+
+    <div>
+        <a href="/">Gallery</a>
+        <a href="/upload">Upload Image</a>
+        <a href="/azure">Azure Resources</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h2>Cloud-Native Image Sharing Platform</h2>
+
+    <p>
+        Upload, manage, edit and delete image assets using a
+        MediaFlow-style cloud-ready web application.
+    </p>
+</section>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="message">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<section class="gallery">
+
+    {% for image in images %}
+
+    <div class="card">
+
+        <!-- IMAGE FROM AZURE BLOB STORAGE -->
+        <img src="{{ image.filename }}" alt="{{ image.title }}">
+
+        <div class="card-body">
+
+            <h3>{{ image.title }}</h3>
+
+            <p>{{ image.description }}</p>
+
+            <span>{{ image.category }}</span>
+
+            <small>
+                Uploaded: {{ image.uploaded_at }}
+            </small>
+
+            <div class="actions">
+
+                <a href="/edit/{{ image.id }}">
+                    Edit
+                </a>
+
+                <form action="/delete/{{ image.id }}" method="POST">
+                    <button type="submit">
+                        Delete
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <p class="empty">
+        No images uploaded yet.
+    </p>
+
+    {% endfor %}
+
+</section>
+
+</body>
+</html>

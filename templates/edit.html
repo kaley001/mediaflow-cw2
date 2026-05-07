@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Image - MediaFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h1>MediaFlow</h1>
+    <div>
+        <a href="/">Gallery</a>
+        <a href="/upload">Upload Image</a>
+        <a href="/azure">Azure Resources</a>
+    </div>
+</nav>
+
+<section class="form-section">
+    <h2>Edit Image Metadata</h2>
+
+    <img class="preview" src="{{ url_for('static', filename='uploads/' + image.filename) }}">
+
+    <form method="POST">
+        <label>Image Title</label>
+        <input type="text" name="title" value="{{ image.title }}" required>
+
+        <label>Description</label>
+        <textarea name="description">{{ image.description }}</textarea>
+
+        <label>Category</label>
+        <input type="text" name="category" value="{{ image.category }}">
+
+        <button type="submit">Update Image</button>
+    </form>
+</section>
+
+</body>
+</html>

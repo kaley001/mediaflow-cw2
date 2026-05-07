@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image - MediaFlow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <h1>MediaFlow</h1>
+    <div>
+        <a href="/">Gallery</a>
+        <a href="/upload">Upload Image</a>
+        <a href="/azure">Azure Resources</a>
+    </div>
+</nav>
+
+<section class="form-section">
+    <h2>Upload Image</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Image Title</label>
+        <input type="text" name="title" required>
+
+        <label>Description</label>
+        <textarea name="description"></textarea>
+
+        <label>Category</label>
+        <input type="text" name="category" placeholder="Nature, Travel, Education">
+
+        <label>Select Image</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit">Upload Image</button>
+    </form>
+</section>
+
+</body>
+</html>
